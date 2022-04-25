@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search OER</title>
+    <link rel="stylesheet" href="static\style.css">
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+
+</head>
+<body>
+<center>
+    <img src="static\logo.JPG" class="logo" width="250" style="margin-top: 30px !important">
+    <table id="customers">
+        <tr>
+            <th>URL</th>
+            <th>Title</th>
+            <th>Short Description</th>
+            <th>Full Text</th>
+            <th>Date</th>
+            <th>Author</th>
+            <th>Generated Keywords</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td contenteditable="True">{{row.url}}</td>
+            <td contenteditable="True">{{row.title}}</td>
+            <td contenteditable="True">{{row.short_desc}}</td>
+            <td contenteditable="True">{{row.full_text}}</td>
+            <td contenteditable="True">{{row.date}}</td>
+            <td contenteditable="True">{{row.author}}</td>
+            <td contenteditable="True">{{row.keywords}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button onclick="download_table_as_csv()" id="sub-btn">
+        Download
+    </button>
+</center>
+</body>
+</html>

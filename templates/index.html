@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search OER</title>
+    <link rel="stylesheet" href="static\style.css">
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+
+</head>
+<body>
+<!--<h1> Search OER welcome page </h1>-->
+<center>
+  <form action="/harvest" method="post" id="form">
+        <img src="static\logo.JPG" class="logo" width="250">
+        <p style="color: red">{{error}}</p>
+<!--      <div id="loading"></div>-->
+      <div id="form1">
+        <div class="bar">
+            <input type="text" name="se_id" placeholder="Search Engine ID" value="" id="id-input" class="se-input" onfocus="typing(id)">
+        </div>
+        <span>
+        or <a href="https://support.google.com/programmable-search/answer/2649143?hl=en"> get your search engine id</a>
+        </span>
+      <div class="bar">
+        <input type="text" name="api_key" placeholder="API key" value="" id="key-input" class="se-input" onfocus="typing(id)">
+      </div>
+      <span>
+        or <a href="https://developers.google.com/custom-search/v1/introduction"> get you API key</a>
+      </span>
+      <div class="btn-1">
+        <a onclick="formOne()">
+            <img src="static\search.JPG" width="50">
+        </a>
+      </div>
+  </div>
+      <div id="form2">
+          <div class="bar">
+            <input type="text" name="urls" placeholder="targeted websites urls" value="" id="wb-input" class="se-input" onfocus="typing(id)">
+        </div>
+        <div class="bar">
+            <input type="text" name="keywords" placeholder="Keywords" value="" id="kw-input" class="se-input" onfocus="typing(id)">
+        </div>
+        <select name="index" id="se-idx" class="se-input">
+            <option value="" disabled selected>Select Indexing tool</option>s
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+        </select>
+        <div style="width: 500px; margin-top: 5px">
+        <label>Date</label>
+        <input type="checkbox" id="se-dt" name="date">
+        <label>Author</label>
+        <input type="checkbox" id="se-au" name="author">
+        </div>
+        <button type="submit" onclick="formOne()" id="sub-btn">
+            Start Harvest >
+        </button>
+      </div>
+  </form>
+</center>
+</body>
+</html>
