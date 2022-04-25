@@ -35,8 +35,8 @@ class SearchResults(db.Model):
     author = db.Column(db.String(250))
     keywords = db.Column(db.String(1000))
 
-    def __repr__(self):
-        return f"{self.url} - {self.full_text}"
+    # def __repr__(self):
+    #     return f"{self.url} - {self.full_text}"
 
 
 @app.route('/')
@@ -105,13 +105,13 @@ def results():
     arr = []
     for row in data:
         item = dict()
-        item['url'] = row.url[:23]
-        item['title'] = row.title[:23]
-        item['short_desc'] = row.short_desc[:23]
-        item['full_text'] = row.full_text[:23]
+        item['url'] = row.url[:50]
+        item['title'] = row.title
+        item['short_desc'] = row.short_desc
+        item['full_text'] = row.full_text[:250]
         item['date'] = row.date
-        item['author'] = row.author[:23] if row.author else ''
-        item['keywords'] = row.keywords[:23]
+        item['author'] = row.author[:50] if row.author else ''
+        item['keywords'] = row.keywords[:50]
         arr.append(item)
     return render_template('results.html', data=arr)
 

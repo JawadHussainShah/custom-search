@@ -22,13 +22,13 @@
         </tr>
         {% for row in data %}
         <tr>
-            <td contenteditable="True">{{row.url}}</td>
-            <td contenteditable="True">{{row.title}}</td>
-            <td contenteditable="True">{{row.short_desc}}</td>
-            <td contenteditable="True">{{row.full_text}}</td>
-            <td contenteditable="True">{{row.date}}</td>
-            <td contenteditable="True">{{row.author}}</td>
-            <td contenteditable="True">{{row.keywords}}</td>
+           <td contenteditable="True">{{row.url}}</td>
+           <td contenteditable="True"><div>{{row.title}}</div></td>
+            <td contenteditable="True"><div>{{row.short_desc}}</div></td>
+            <td contenteditable="True"><div>{{row.full_text}}</div></td>
+            <td contenteditable="True"><div>{{row.date}}</div></td>
+            <td contenteditable="True"><div>{{row.author}}</div></td>
+            <td contenteditable="True"><div>{{row.keywords}}</div></td>
         </tr>
         {% endfor %}
     </table>
