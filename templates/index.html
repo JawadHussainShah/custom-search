@@ -9,11 +9,18 @@
 </head>
 <body>
 <!--<h1> Search OER welcome page </h1>-->
+
 <center>
+  <div style="text-align: right;margin-right: 70px;">
+  
+  <label><strong>Search Engine ID:</strong></label>&nbsp;<label  id="se_id" for="SearchEngine id" >None</label>&nbsp;
+  <label><strong>API Key:</strong></label>&nbsp;<label id="api_key" for="api id">None</label>
+
+</div>
   <form action="/harvest" method="post" id="form">
         <img src="static\logo.JPG" class="logo" width="250">
         <p style="color: red">{{error}}</p>
-<!--      <div id="loading"></div>-->
+      <!-- <div id="loading"></div> -->
       <div id="form1">
         <div class="bar">
             <input type="text" name="se_id" placeholder="Search Engine ID" value="" id="id-input" class="se-input" onfocus="typing(id)">

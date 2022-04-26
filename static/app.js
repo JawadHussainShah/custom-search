@@ -37,6 +37,12 @@ function formOne() {
       document.getElementById("id-input").style.borderColor = "red";
       document.getElementById("key-input").style.borderColor = "red";
      } else {
+         se_id = document.getElementById("id-input").value
+         document.getElementById("se_id").textContent = se_id
+         api_key = document.getElementById("key-input").value
+         document.getElementById("api_key").textContent = api_key
+
+         
         document.getElementById("form1").style.display = "none";
         document.getElementById("form2").style.display = "block";
      }

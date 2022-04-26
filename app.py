@@ -92,10 +92,10 @@ def harvest():
                 db.session.add(results)
                 db.session.commit()
             currentResults += len(data.get("items", {}))
-            page += 10
+            page += 90
             if currentResults > totalResults or page >= 100:
                 hasNextPage = False
-    return redirect(url_for('results'))
+    return redirect(url_for('results',url=urls,keywords=keywords,idx=idx))
 
 
 @app.route('/results')
@@ -103,6 +103,9 @@ def results():
     db_rows = SearchResults()
     data = db_rows.query.all()
     arr = []
+    url = request.args["url"]  # counterpart for url_for()
+    keyword = request.args["keywords"]  # counterpart for url_for()
+    idx = request.args["idx"]  # counterpart for url_for()
     for row in data:
         item = dict()
         item['url'] = row.url[:50]
@@ -113,7 +116,7 @@ def results():
         item['author'] = row.author[:50] if row.author else ''
         item['keywords'] = row.keywords[:50]
         arr.append(item)
-    return render_template('results.html', data=arr)
+    return render_template('results.html', data=arr, target_url= url, keyword=keyword, tool=idx)
 
 
 if __name__ == "__main__":

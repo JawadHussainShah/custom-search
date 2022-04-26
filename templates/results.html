@@ -5,11 +5,43 @@
     <title>Search OER</title>
     <link rel="stylesheet" href="static\style.css">
     <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+    <style type="text/css">
+    	.about_data{
+    		text-align: left;
+    		margin-left: 150px;
+    		margin-bottom: 50px;
+    	}
+    	label{
+    		font-size: 22px;
+
+    	}
+
+    	li{display: inline;
+    		margin-left: 10px;
+    		font-size: 15px;
+    		padding:3px;
+    		background: lightgray;
+    		border-radius: 7px;
+    		border: 1px solid black;
+
+
+    		}
+    </style>
 
 </head>
 <body>
 <center>
     <img src="static\logo.JPG" class="logo" width="250" style="margin-top: 30px !important">
+	<div class="about_data">
+	    <ul>
+	    	<label for="">Target site url(s): </label>
+	    	<li>{{target_url}}</li><br><br>
+	    	<label for="">Keywords: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    	<li>{{keyword}}</li><br><br>
+	    	<label for="">Select Indexing Tool: </label>
+	    	<li style="background: none;border: none;">{{tool}}</li><br>
+	    </ul>
+	</div>
     <table id="customers">
         <tr>
             <th>URL</th>
